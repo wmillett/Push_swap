@@ -6,7 +6,7 @@
 /*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 19:06:12 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/07 17:32:13 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/23 17:13:20 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ long	ft_atoil(const char *str)
 	n = 0;
 	while (ft_isspace(str[n]))
 		n++;
-	if (str[n] == '-' || str[n] == '+')
+	while (str[n] == '-' || str[n] == '+')
 	{
 		if (str[n] == '-')
 			i++;
@@ -31,9 +31,11 @@ long	ft_atoil(const char *str)
 	}
 	while ((str[n] >= '0' && str[n] <= '9'))
 		result = result * 10 + str[n++] - '0';
-	if (result > INT_MAX || result < INT_MIN || i > 1)
-		return (ATOL_ER);
+	if (i >= 2)
+		return (ATOL_ER2);
 	if (i % 2 == 1)
-		return (-result);
+		result = -result;
+	if (result > INT_MAX || result < INT_MIN)
+		return (ATOL_ER);
 	return (result);
 }

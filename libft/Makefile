@@ -6,7 +6,7 @@
 #    By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 11:55:15 by wmillett          #+#    #+#              #
-#    Updated: 2023/08/09 18:07:45 by wmillett         ###   ########.fr        #
+#    Updated: 2023/08/23 16:40:32 by wmillett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,12 +24,6 @@ SRC =	ft_strlen.c\
 		ft_atoil.c\
 		ft_isdigit.c\
 		ft_isspace.c\
-		ft_lstadd_back.c\
-		ft_lstadd_front.c\
-		ft_lstdelone.c\
-		ft_lstclear.c\
-		ft_lstlast.c\
-		ft_lstnew.c\
 		ft_isoper.c\
 		ft_split.c\
 		ft_strchr.c\

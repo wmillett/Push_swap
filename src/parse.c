@@ -6,82 +6,90 @@
 /*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 19:16:47 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/08 19:42:20 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/23 17:16:33 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int check_arg(int argc, char** argv)
+int	check_arg(int argc, char **argv)
 {
-	int i;
-	int j;
-	
-	if(argc <= 1)
+	int	i;
+	int	j;
+
+	if (argc <= 1)
 		exit(0);
 	i = 1;
 	while (i < argc)
 	{
 		j = 0;
-		while(argv[i][j])
+		while (argv[i][j])
 		{
 			if (!ft_isdigit(argv[i][j]) && !ft_isspace(argv[i][j]) &&
-				argv[i][j] != '-' && argv[i][j] != '+')	
-					printerror("contains an invalid character.");
+				argv[i][j] != '-' && argv[i][j] != '+')
+				printerror("contains an invalid character.");
 			j++;
 		}
 		i++;
 	}
-	if(argc == 2)
-		return(2);
-	return(1);
+	if (argc == 2)
+		return (2);
+	return (1);
 }
 
-void check_size_n(int size_n)
+void	check_size_n(int size_n)
 {
-	if(size_n == 0)
+	if (size_n == 0)
 		exit(0);
 }
 
-int convert_argv(t_stacks *a, int argc, char** argv)
+int	convert_argv(t_stacks *a, int argc, char **argv)
 {
-	int size;
-	long check;
-	
+	int		size;
+	long	check;
+
 	size = 1;
-	while(size < argc)
+	while (size < argc)
 	{
+		check = ft_count_a(argv[size], ' ');
+		if (check > 1)
+			err_exit(a, "invalid argument format.");
 		check = ft_atoil(argv[size]);
-		if (check == ATOL_ER)
-			return(ERROR);
+		if (check <= ATOL_ER)
+		{
+			if (check == ATOL_ER)
+				err_exit(a,
+					"contains an argument that is too large for an int.");
+			err_exit(a, "argument contains too many '-' symbols.");
+		}
 		a->a_stack[size - 1] = (int)check;
 		size++;
 	}
 	size--;
-	return(size);
+	return (size);
 }
 
-int convert_1argv(t_stacks *a, char* str, int index)
+int	convert_1argv(t_stacks *a, char *str, int index)
 {
-	long check;
-	
+	long	check;
+
 	check = ft_atoil(str);
-	if (check == ATOL_ER)
+	if (check <= ATOL_ER)
 	{
 		free(str);
-		err_exit(a, "contains an argument that is too large for an int.");
+		if (check == ATOL_ER)
+			err_exit(a, "contains an argument that is too large for an int.");
+		err_exit(a, "argument contains too many '-' symbols.");
 	}
 	a->a_stack[index] = (int)check;
-	return((int)check);
+	return ((int)check);
 }
 
-
-
-void check_identical(t_stacks *a, int size)
+void	check_identical(t_stacks *a, int size)
 {
-	int i;
-	int j;
-	
+	int	i;
+	int	j;
+
 	i = 0;
 	while (i < size)
 	{
