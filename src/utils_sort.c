@@ -6,7 +6,7 @@
 /*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:48:08 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/23 17:28:39 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/24 15:34:48 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,14 +86,14 @@ int	swap_bigtop(t_stacks *a, int id)
 		if (a->a_len < 2)
 			return (FALSE);
 		if (a->a_stack[0] < a->a_stack[1])
-			sa(a);
+			sa(a, FALSE);
 	}
 	if (id == B_ID)
 	{
 		if (a->b_len < 2)
 			return (FALSE);
 		if (a->b_stack[0] < a->b_stack[1])
-			sa(a);
+			sa(a, FALSE);
 	}
 	return (TRUE);
 }
@@ -109,9 +109,9 @@ void	makeitgotop(t_stacks *a, int index, int dir, int id)
 		while (index != 0)
 		{
 			if (dir == GO_R)
-				ra(a);
+				ra(a, FALSE);
 			else if (dir == GO_RR)
-				rra(a);
+				rra(a, FALSE);
 			index = get_index(a, nb, A_ID);
 		}
 	}
@@ -120,9 +120,9 @@ void	makeitgotop(t_stacks *a, int index, int dir, int id)
 	while (index != 0)
 	{
 		if (dir == GO_R)
-			rb(a);
+			rb(a, FALSE);
 		else if (dir == GO_RR)
-			rrb(a);
+			rrb(a, FALSE);
 		index = get_index(a, nb, B_ID);
 	}
 }

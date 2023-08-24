@@ -6,7 +6,7 @@
 /*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 04:04:38 by lightyagami       #+#    #+#             */
-/*   Updated: 2023/08/23 17:23:46 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/24 15:36:14 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ void	makeitgobot(t_stacks *a, int index, int dir, int id)
 		while (index != a->a_len - 1)
 		{
 			if (dir == GO_R)
-				ra(a);
+				ra(a, FALSE);
 			else if (dir == GO_RR)
-				rra(a);
+				rra(a, FALSE);
 			index = get_index(a, nb, id);
 		}
 		return ;
@@ -74,9 +74,9 @@ void	makeitgobot(t_stacks *a, int index, int dir, int id)
 	while (tmp != a->b_len - 1)
 	{
 		if (dir == GO_R)
-			rb(a);
+			rb(a, FALSE);
 		else if (dir == GO_RR)
-			rrb(a);
+			rrb(a, FALSE);
 		tmp = get_index(a, nb, id);
 	}
 }

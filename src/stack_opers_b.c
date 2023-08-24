@@ -6,7 +6,7 @@
 /*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 22:56:11 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/23 16:51:00 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/24 15:41:16 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Swap the first 2 elements at the top of stack b.
 // Do nothing if there is only one or no elements
 // Prints sb.
-int	sb(t_stacks *x)
+int	sb(t_stacks *x, int duo)
 {
 	int	tmp1;
 	int	tmp2;
@@ -26,7 +26,8 @@ int	sb(t_stacks *x)
 		tmp2 = x->b_stack[1];
 		x->b_stack[0] = tmp2;
 		x->b_stack[1] = tmp1;
-		printf("sb\n");
+		if (duo == FALSE)
+			printf("sb\n");
 		return (TRUE);
 	}
 	return (FALSE);
@@ -35,7 +36,7 @@ int	sb(t_stacks *x)
 // Shift up all elements of stack b by 1.
 // The first element becomes the last one.
 // Prints rb.
-int	rb(t_stacks *x)
+int	rb(t_stacks *x, int duo)
 {
 	int	tmp1;
 	int	tmp2;
@@ -46,7 +47,7 @@ int	rb(t_stacks *x)
 	i = 1;
 	if (x->b_len == 2)
 	{
-		sb(x);
+		sb(x, duo);
 		return (TRUE);
 	}
 	tmp2 = x->b_stack[x->b_len - (i + 1)];
@@ -58,14 +59,15 @@ int	rb(t_stacks *x)
 		x->b_stack[x->b_len - (i + 1)] = tmp2;
 		tmp2 = tmp1;
 	}
-	printf("rb\n");
+	if (duo == FALSE)
+		printf("rb\n");
 	return (TRUE);
 }
 
 // Shift down all elements of stack b by 1.
 // The last element becomes the first one.
 // Prints rrb.
-int	rrb(t_stacks *x)
+int	rrb(t_stacks *x, int duo)
 {
 	int	tmp1;
 	int	tmp2;
@@ -82,7 +84,8 @@ int	rrb(t_stacks *x)
 		x->b_stack[i] = tmp1;
 		tmp1 = tmp2;
 	}
-	printf("rrb\n");
+	if (duo == FALSE)
+		printf("rrb\n");
 	return (TRUE);
 }
 

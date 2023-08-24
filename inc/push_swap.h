@@ -6,7 +6,7 @@
 /*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 19:43:53 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/23 17:10:06 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/24 16:21:21 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,16 @@
 # define B_ID 2
 # define GO_R 1
 # define GO_RR 2
+# define GO_UP 1
+# define GO_DW 2
 # define BIGGER 1
 # define SMALLER -1
 # define EQUAL 0
 # define INVALID -1
+# define BOTH_UP 1
+# define BOTH_DW 2
+# define ONLY_AUP -1
+# define ONLY_BUP -2
 
 typedef struct s_stacks
 {
@@ -60,6 +66,9 @@ void	check_size_n(int size_n);
 //sort_small -----------------------
 void	sort_for3(t_stacks *a, int id);
 void	sort_for5(t_stacks *a);
+//algo -----------------------------
+int 	pos_tobe_b(t_stacks* a, int index);
+int 	pos_tobe_a(t_stacks* a, int index);
 //find_smaller ---------------------
 int		find_nextsmall(t_stacks *a, int id, int index);
 //find_bigger ----------------------
@@ -72,15 +81,19 @@ void	sortforbig(t_stacks *x);
 void	set_pos(t_stacks *x, int pos_a, int pos_b, int size);
 int		compare_distance(t_stacks *a, int nbx, int small, int big);
 //stack_opers_a ----------------------
-int		sa(t_stacks *x);
-int		ra(t_stacks *x);
-int		rra(t_stacks *x);
+int		sa(t_stacks *x, int duo);
+int		ra(t_stacks *x, int duo);
+int		rra(t_stacks *x, int duo);
 int		pa(t_stacks *x);
 //stack_opers_b ----------------------
-int		sb(t_stacks *x);
-int		rb(t_stacks *x);
-int		rrb(t_stacks *x);
+int		sb(t_stacks *x, int duo);
+int		rb(t_stacks *x, int duo);
+int		rrb(t_stacks *x, int duo);
 int		pb(t_stacks *x);
+//stack_opers_both -------------------
+int 	rr(t_stacks* x);
+int 	rrr(t_stacks* x);
+int 	ss(t_stacks* x);
 //utils ----------------------------
 int		get_nb(t_stacks *a, int index, int id);
 int		is_sorted(t_stacks *a);

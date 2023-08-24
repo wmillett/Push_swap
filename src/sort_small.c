@@ -6,7 +6,7 @@
 /*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 23:02:48 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/23 17:20:13 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/24 15:44:27 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,21 @@ void	sort_for3(t_stacks *a, int id)
 	{
 		big = pos_biggest(a, A_ID);
 		if (big == 0 && a->a_len > 2)
-			ra(a);
+			ra(a, FALSE);
 		else if (big == 1 && a->a_len > 2)
-			rra(a);
+			rra(a, FALSE);
 		if (a->a_stack[0] > a->a_stack[1])
-			sa(a);
+			sa(a, FALSE);
 	}
 	if (id == B_ID)
 	{
 		big = pos_biggest(a, B_ID);
 		if (big == 0 && a->b_len > 2)
-			rb(a);
+			rb(a, FALSE);
 		else if (big == 1 && a->b_len > 2)
-			rrb(a);
+			rrb(a, FALSE);
 		if (a->b_stack[0] > a->b_stack[1])
-			sb(a);
+			sb(a, FALSE);
 	}
 }
 

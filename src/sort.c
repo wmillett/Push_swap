@@ -6,7 +6,7 @@
 /*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 19:13:47 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/23 17:19:40 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/24 15:35:31 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static void	setup_loop(t_stacks *a, int size)
 {
 	pb(a);
 	if (size == SMALLER)
-		rb(a);
+		rb(a, FALSE);
 }
 
 void	sortforbig(t_stacks *x)

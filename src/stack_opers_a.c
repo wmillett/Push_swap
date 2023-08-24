@@ -6,7 +6,7 @@
 /*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 22:56:11 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/23 16:50:31 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/24 15:42:16 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Swap the first 2 elements at the top of stack a.
 // Do nothing if there is only one or no elements
 // Prints sa.
-int	sa(t_stacks *x)
+int	sa(t_stacks *x, int duo)
 {
 	int	tmp1;
 	int	tmp2;
@@ -26,7 +26,8 @@ int	sa(t_stacks *x)
 		tmp2 = x->a_stack[1];
 		x->a_stack[0] = tmp2;
 		x->a_stack[1] = tmp1;
-		printf("sa\n");
+		if (duo == FALSE)
+			printf("sa\n");
 		return (TRUE);
 	}
 	return (FALSE);
@@ -35,7 +36,7 @@ int	sa(t_stacks *x)
 // Shift up all elements of stack a by 1.
 // The first element becomes the last one.
 // Prints ra.
-int	ra(t_stacks *x)
+int	ra(t_stacks *x, int duo)
 {
 	int	tmp1;
 	int	tmp2;
@@ -45,7 +46,7 @@ int	ra(t_stacks *x)
 		return (FALSE);
 	if (x->a_len == 2)
 	{
-		sa(x);
+		sa(x, duo);
 		return (TRUE);
 	}
 	i = 1;
@@ -58,14 +59,15 @@ int	ra(t_stacks *x)
 		x->a_stack[x->a_len - (i + 1)] = tmp2;
 		tmp2 = tmp1;
 	}
-	printf("ra\n");
+	if(duo == FALSE)
+		printf("ra\n");
 	return (TRUE);
 }
 
 // Shift down all elements of stack a by 1.
 // The last element becomes the first one.
 // Prints rra.
-int	rra(t_stacks *x)
+int	rra(t_stacks *x, int duo)
 {
 	int	tmp1;
 	int	tmp2;
@@ -82,7 +84,8 @@ int	rra(t_stacks *x)
 		x->a_stack[i] = tmp1;
 		tmp1 = tmp2;
 	}
-	printf("rra\n");
+	if (duo == FALSE)
+		printf("rra\n");
 	return (TRUE);
 }
 

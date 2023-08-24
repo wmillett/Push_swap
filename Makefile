@@ -6,7 +6,7 @@
 #    By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 08:48:00 by wmillett          #+#    #+#              #
-#    Updated: 2023/08/21 18:40:22 by wmillett         ###   ########.fr        #
+#    Updated: 2023/08/24 15:51:16 by wmillett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ LIBFT_A = libft.a
 LIBFTDIR = libft
 LIBFT = $(addprefix $(LIBFTDIR)/, $(LIBFT_A))
 SRC = main.c\
+	algo.c\
 	error.c\
  	utils.c\
 	utils_print.c\
@@ -40,6 +41,7 @@ SRC = main.c\
   	sort_small.c\
    	stack_opers_a.c\
 	stack_opers_b.c\
+	stack_opers_both.c\
 	handle_array.c\
 	sort.c\
 	sort_opers.c\
