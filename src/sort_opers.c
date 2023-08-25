@@ -3,33 +3,71 @@
 /*                                                        :::      ::::::::   */
 /*   sort_opers.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lightyagami <lightyagami@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 00:59:35 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/24 18:28:21 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/25 00:06:22 by lightyagami      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-
-
-
-
-static int calculate_dis(t_stacks* a, int dis_a1, int dis_a2, int dis_b1, int dis_b2)
+static int calculate_dis(int dis_a1, int dis_a2, int dis_b1, int dis_b2)
 {
 	int tmp;
+	int dir;
 	int res;
 
+	res = -1;
 	if(dis_a1 <= dis_b2)
-		tmp = dis_b2 - dis_a1;
+		tmp = dis_b2;
 	else
-		tmp = dis_a1 - dis_b2;
-	
-	
+		tmp = dis_a1;
+	if(dis_a1 + dis_b1 > tmp)
+	{
+		dir = tmp;
+		res = SWITCH_B;
+	}
+	if(dis_b1 <= dis_a2)
+		tmp = dis_a2;
+	else
+		tmp = dis_b1;
+	if(dis_a1 + dis_b1 > tmp)
+	{
+		if(tmp < res)
+		{
+			dir = tmp;
+			res = SWITCH_A;
+		}
+	}
+	return(res);
 }
 
+static int interpret_dir(int to_interpret, int way)
+{
+	int res;
 
+	if(to_interpret == -1)
+		res = way;
+	else
+	{
+		if(to_interpret == SWITCH_A)
+		{
+			if(way == ONLY_BUP)
+				res = BOTH_UP;
+			if(way == ONLY_AUP)
+				res = BOTH_DW;
+		}
+		if(to_interpret == SWITCH_B)
+		{
+			if(way == ONLY_AUP)
+				res = BOTH_UP;
+			if(way == ONLY_BUP)
+				res = BOTH_DW;
+		}
+	}
+	return(res);
+}
 
 static int sub_try(t_stacks* a, int pos_b, int size, int dir)
 {
@@ -42,65 +80,51 @@ static int sub_try(t_stacks* a, int pos_b, int size, int dir)
 	return(dis);
 }
 
-
-
-
-
 static int try_ways(t_stacks* a, int pos_a, int pos_b, int size, int way)
 {
 	int dis_a1;
 	int dis_a2;
 	int dis_b1;
 	int dis_b2;
-	int dis_res;
+	int dir_res;
+	int res;
 
 	if(way == ONLY_AUP)
 	{
 		dis_a1 = distance_top(a, pos_a, A_ID, GO_UP);
 		dis_a2 = distance_top(a, pos_a, A_ID, GO_DW);
-		dis_b1 = sub_try(a, pos_b, B_ID, GO_DW);
-		dis_b2 = sub_try(a, pos_b, B_ID, GO_UP);
+		dis_b1 = sub_try(a, pos_b, size, GO_DW);
+		dis_b2 = sub_try(a, pos_b, size, GO_UP);
 	}
 	else
 	{
 		dis_a1 = distance_top(a, pos_a, A_ID, GO_DW);
 		dis_a2 = distance_top(a, pos_a, A_ID, GO_UP);
-		dis_b1 = sub_try(a, pos_b, B_ID, GO_DW);
-		dis_b2 = sub_try(a, pos_b, B_ID, GO_UP);
+		dis_b1 = sub_try(a, pos_b, size, GO_DW);
+		dis_b2 = sub_try(a, pos_b, size, GO_UP);
 	}
-	dis_res = calculate_dis(a, dis_a1, dis_a2, dis_b1, dis_b2);
-	return(dis_res);
+	dir_res = calculate_dis(dis_a1, dis_a2, dis_b1, dis_b2);
+	res = interpret_dir(dir_res, way);
+	return(res);
 }
-
-
-
 
 int compare_way(t_stacks* a, int pos_a, int pos_b, int size)
 {
 	const int path1 = way_top(a, pos_a, A_ID);
 	int path2;
-	int dis1;
-	int dis2;
-	int tmp;
+	int way;
 	
 	if(size == BIGGER)
 		path2 = way_top(a, pos_b, B_ID);
 	else
 		path2 = way_bot(a, pos_b, B_ID);
-	// dis1 = distance_top(a, pos_a, A_ID, path1);
 	if(path1 == path2)
 		return(path1);
 	if (path1 == GO_UP)
-		tmp = try_ways(a, pos_a, pos_b, size, ONLY_AUP);
+		way = try_ways(a, pos_a, pos_b, size, ONLY_AUP);
 	else
-		tmp = try_ways(a, pos_a, pos_b, size, ONLY_BUP);
-	// if(size == BIGGER)
-	// 	dis2 = distance_top(a, pos_b, B_ID, path2);
-	// else
-	// 	dis2 = distance_bot(a, pos_b, B_ID, path2);
-	// if(dis1 > dis2 && dis)
-		
-
+		way = try_ways(a, pos_a, pos_b, size, ONLY_BUP);
+	return(way);
 }
 
 

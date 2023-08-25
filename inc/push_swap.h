@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lightyagami <lightyagami@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 19:43:53 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/24 16:21:21 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/24 23:50:56 by lightyagami      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@
 # define BOTH_DW 2
 # define ONLY_AUP -1
 # define ONLY_BUP -2
+# define SWITCH_A 1
+# define SWITCH_B 2
 
 typedef struct s_stacks
 {
