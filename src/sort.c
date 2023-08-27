@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lightyagami <lightyagami@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 19:13:47 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/24 15:35:31 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/27 03:34:35 by lightyagami      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,12 @@ int	get_next(t_stacks *a, int index, int id, int rt_value)
 		dir = SMALLER;
 	else
 		dir = compare_distance(a, index, small, big);
-	if (dir == SMALLER || dir == EQUAL)
-		dis = totaldistance(a, small, index, SMALLER);
-	if (dir == BIGGER)
-		dis = totaldistance(a, big, index, BIGGER);
+	if (dir == SMALLER)
+		dis = best_distance(a, small, index, SMALLER);
+		// dis = totaldistance(a, small, index, SMALLER);
+	if (dir == BIGGER || dir == EQUAL)
+		dis = best_distance(a, big, index, BIGGER);
+		// dis = totaldistance(a, big, index, BIGGER);
 	if (rt_value == TRUE)
 	{
 		if (dir == SMALLER)
@@ -54,6 +56,7 @@ int	least_moves(t_stacks *a, int id)
 	while (i < a->b_len)
 	{
 		dis = get_next(a, i, B_ID, FALSE);
+		// dis = best_distance(a, );
 		if ((dis < shortest || shortest == -2) && !(dis < 0))
 		{
 			pos_b = i;
@@ -72,6 +75,9 @@ static void	setup_start(t_stacks *a)
 	if (is_sorted(a))
 		leave(a);
 	pb(a);
+	// pb(a);
+	// if (a->b_stack[0] < a->b_stack[1])
+	// 	sb(a, FALSE);
 }
 
 static void	setup_loop(t_stacks *a, int size)

@@ -6,7 +6,7 @@
 /*   By: lightyagami <lightyagami@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 19:43:53 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/24 23:50:56 by lightyagami      ###   ########.fr       */
+/*   Updated: 2023/08/27 03:40:26 by lightyagami      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ int		get_next(t_stacks *a, int index, int id, int rt_value);
 int		least_moves(t_stacks *a, int id);
 void	sortforbig(t_stacks *x);
 //sort_opers -------------------------
+int 	best_distance(t_stacks* a, int pos_a, int pos_b, int size);
+int 	compare_way(t_stacks* a, int pos_a, int pos_b, int size);
 void	set_pos(t_stacks *x, int pos_a, int pos_b, int size);
 int		compare_distance(t_stacks *a, int nbx, int small, int big);
 //stack_opers_a ----------------------

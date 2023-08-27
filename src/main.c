@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lightyagami <lightyagami@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 19:42:25 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/23 20:28:57 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/27 04:16:22 by lightyagami      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ void	sort_method(t_stacks *a)
 {
 	a->a_len = a->size;
 	a->b_len = 0;
-	// print_allarray(a);
+	print_allarray(a);
 	if (a->size <= 3)
 		sort_for3(a, A_ID);
 	else if (a->size <= 5)
 		sort_for5(a);
 	else
 		sortforbig(a);
-	// print_allarray(a);
+	print_allarray(a);
 	return ;
 }
 
