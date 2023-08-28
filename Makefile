@@ -6,7 +6,7 @@
 #    By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 08:48:00 by wmillett          #+#    #+#              #
-#    Updated: 2023/08/24 15:51:16 by wmillett         ###   ########.fr        #
+#    Updated: 2023/08/27 22:43:35 by wmillett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,8 @@ LIBFTDIR = libft
 LIBFT = $(addprefix $(LIBFTDIR)/, $(LIBFT_A))
 SRC = main.c\
 	algo.c\
+	radix.c\
+	turn_radix.c\
 	error.c\
  	utils.c\
 	utils_print.c\

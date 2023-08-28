@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lightyagami <lightyagami@student.42.fr>    +#+  +:+       +#+        */
+/*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 19:42:25 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/27 04:16:22 by lightyagami      ###   ########.fr       */
+/*   Updated: 2023/08/27 22:47:07 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void	sort_method(t_stacks *a)
 {
@@ -22,7 +36,9 @@ void	sort_method(t_stacks *a)
 	else if (a->size <= 5)
 		sort_for5(a);
 	else
-		sortforbig(a);
+		sort_radix(a);
+	// transform_to_radix(a);
+	// 	sortforbig(a);
 	print_allarray(a);
 	return ;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_opers.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lightyagami <lightyagami@student.42.fr>    +#+  +:+       +#+        */
+/*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 00:59:35 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/27 04:15:46 by lightyagami      ###   ########.fr       */
+/*   Updated: 2023/08/27 19:53:34 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -252,13 +252,23 @@ void	set_pos(t_stacks *x, int pos_a, int pos_b, int size)
 	
 	if(way == BOTH_UP || way == BOTH_DW)
 	{
+		// printf("here\n");
+		// print_allarray(x);
+		// printf("countway\n");
 		count_way(x, pos_a, pos_b, size, way);
+		// print_allarray(x);
 		pos_a = get_index(x, nb_a, A_ID);
+		// printf("pos_a: %i\n", pos_a);
 		pos_b = get_index(x, nb_b, B_ID);
+		// printf("pos_b: %i\n", pos_b);
 		solve_remain(x, pos_a, pos_b, size, way);
+		// print_allarray(x);
+		// all_free(x);
+		// exit(0);
 	}
 	else
 		makeitgo(x, pos_a, pos_b, size, way);
+	print_allarray(x);
 }
 
 int	compare_distance(t_stacks *a, int nbx, int small, int big)

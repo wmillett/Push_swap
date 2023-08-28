@@ -1,43 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_opers_both.c                                 :+:      :+:    :+:   */
+/*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/24 15:25:18 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/27 15:49:26 by wmillett         ###   ########.fr       */
+/*   Created: 2023/08/27 22:43:17 by wmillett          #+#    #+#             */
+/*   Updated: 2023/08/27 23:29:58 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-//Does both ra and rb at the same time.
-//Prints "rr".
-int rr(t_stacks* x)
+static void putback(t_stacks* a)
 {
-	ra(x, TRUE);
-	rb(x, TRUE);
-	printf("rr\n");
-	return(TRUE);
+	while(a->b_len)
+	{
+		pa(a);
+	}
+
 }
 
-//Does both rra and rrb at the same time.
-//Prints "rrr".
-int rrr(t_stacks* x)
+static void radix_loop(t_stacks* a)
 {
-	rra(x, TRUE);
-	rrb(x, TRUE);
-	printf("rrr\n");
-	return(TRUE);
+	int i;
+	int bit;
+	
+	bit = 1;
+	while(bit < 4)
+	{
+		i = 0;
+		while(i < a->size)
+		{
+			if ((a->a_stack[0] >> bit) & 0)
+				pb(a);
+			else
+				ra(a, FALSE);
+			i++;
+		}
+		putback(a);
+		bit++;
+	}
 }
 
-//Does both sa and sb at the same time.
-//Prints "ss".
-int ss(t_stacks* x)
+
+
+
+
+void sort_radix(t_stacks* a)
 {
-	sa(x, TRUE);
-	sb(x, TRUE);
-	printf("ss\n");
-	return(TRUE);
+	transform_to_radix(a);
+	radix_loop(a);
 }
