@@ -6,24 +6,29 @@
 /*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 19:42:25 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/29 16:05:51 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/29 17:23:31 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+static void	check_sorted(t_stacks *a)
+{
+	if (is_sorted(a))
+		leave(a);
+}
+
 void	sort_method(t_stacks *a)
 {
 	a->a_len = a->size;
 	a->b_len = 0;
-	print_allarray(a);
+	check_sorted(a);
 	if (a->size <= 3)
 		sort_for3(a, A_ID);
 	else if (a->size <= 5)
 		sort_for5(a);
 	else
 		sort_radix(a);
-	print_allarray(a);
 	return ;
 }
 
