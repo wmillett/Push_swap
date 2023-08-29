@@ -6,7 +6,7 @@
 /*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 13:54:58 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/27 22:31:18 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/29 16:16:15 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,6 @@ int	find_biggest(t_stacks *a)
 	}
 	return (big);
 }
-
 
 int	find_smallest(t_stacks *a)
 {

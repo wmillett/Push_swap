@@ -6,56 +6,43 @@
 /*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 20:06:49 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/27 22:57:46 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/29 16:33:47 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-
-
-// static int get_len(t_stacks* a)
-// {
-// 	const int len = find
-
-	
-// }
-
-
-
-static int get_small(t_stacks* a)
+static int	get_small(t_stacks *a)
 {
-	int nb;
-	int pos;
+	int	nb;
+	int	pos;
 
 	nb = find_smallest(a);
 	pos = get_index(a, nb, A_ID);
-	return(pos);
+	return (pos);
 }
 
-static int findthebig(t_stacks* a)
+static int	findthebig(t_stacks *a)
 {
-	int i;
-	int pos;
-	
+	int	i;
+	int	pos;
+
 	pos = 0;
 	i = 1;
-	while(i < a->a_len)
+	while (i < a->a_len)
 	{
-		if(a->a_stack[i] > a->a_stack[pos])
+		if (a->a_stack[i] > a->a_stack[pos])
 			pos = i;
 		i++;
 	}
-	return(pos);
+	return (pos);
 }
 
-
-static int next(t_stacks* a, int index)
+static int	next(t_stacks *a, int index)
 {
 	int	i;
-	int pos;
+	int	pos;
 
-	
 	pos = findthebig(a);
 	i = 0;
 	while (i < a->a_len)
@@ -65,17 +52,19 @@ static int next(t_stacks* a, int index)
 			pos = i;
 		i++;
 	}
-	return(pos);
+	return (pos);
 }
 
-void transform_to_radix(t_stacks* a)
+void	transform_to_radix(t_stacks *a)
 {
-	int i;
-	int index[a->size];
-	int tmp;
+	int			i;
+	int			*index;
+	int			tmp;
 
+	index = malloc(sizeof(int) * a->size + 1);
+	check_malloc_rad(a, index);
 	i = 0;
-	while(i < a->size)
+	while (i < a->size)
 	{
 		if (i == 0)
 			index[i] = get_small(a);
@@ -87,11 +76,10 @@ void transform_to_radix(t_stacks* a)
 		i++;
 	}
 	i = 0;
-	while(i < a->size)
+	while (i < a->size)
 	{
 		a->a_stack[index[i]] = i;
 		i++;
 	}
-	// tmp = a->size - 1;
-	// return(tmp);
+	free(index);
 }

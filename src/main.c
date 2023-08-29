@@ -6,25 +6,11 @@
 /*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 19:42:25 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/27 22:47:07 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/29 16:05:51 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 void	sort_method(t_stacks *a)
 {
@@ -37,8 +23,6 @@ void	sort_method(t_stacks *a)
 		sort_for5(a);
 	else
 		sort_radix(a);
-	// transform_to_radix(a);
-	// 	sortforbig(a);
 	print_allarray(a);
 	return ;
 }

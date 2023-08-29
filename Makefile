@@ -6,7 +6,7 @@
 #    By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 08:48:00 by wmillett          #+#    #+#              #
-#    Updated: 2023/08/27 22:43:35 by wmillett         ###   ########.fr        #
+#    Updated: 2023/08/29 16:25:15 by wmillett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ SRC = main.c\
 	find_smaller.c\
 	find_bigger.c\
   	sort_small.c\
+	sort_dist.c\
    	stack_opers_a.c\
 	stack_opers_b.c\
 	stack_opers_both.c\
