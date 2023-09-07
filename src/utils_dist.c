@@ -6,7 +6,7 @@
 /*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 04:04:38 by lightyagami       #+#    #+#             */
-/*   Updated: 2023/08/24 15:36:14 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/29 16:52:42 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,23 +81,23 @@ void	makeitgobot(t_stacks *a, int index, int dir, int id)
 	}
 }
 
-int	totaldistance(t_stacks *a, int pos_a, int pos_b, int size)
-{
-	int	dis;
-	int	dis2;
-	int	dir;
+// int	totaldistance(t_stacks *a, int pos_a, int pos_b, int size)
+// {
+// 	int	dis;
+// 	int	dis2;
+// 	int	dir;
 
-	dir = way_top(a, pos_a, A_ID);
-	dis = distance_top(a, pos_a, A_ID, dir);
-	if (size == BIGGER)
-	{
-		dir = way_top(a, pos_b, B_ID);
-		dis2 = distance_top(a, pos_b, B_ID, dir);
-	}
-	else
-	{
-		dir = way_bot(a, pos_b, B_ID);
-		dis2 = distance_bot(a, pos_b, B_ID, dir);
-	}
-	return (dis + dis2);
-}
+// 	dir = way_top(a, pos_a, A_ID);
+// 	dis = distance_top(a, pos_a, A_ID, dir);
+// 	if (size == BIGGER)
+// 	{
+// 		dir = way_top(a, pos_b, B_ID);
+// 		dis2 = distance_top(a, pos_b, B_ID, dir);
+// 	}
+// 	else
+// 	{
+// 		dir = way_bot(a, pos_b, B_ID);
+// 		dis2 = distance_bot(a, pos_b, B_ID, dir);
+// 	}
+// 	return (dis + dis2);
+// }

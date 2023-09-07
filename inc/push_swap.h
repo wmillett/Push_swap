@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lightyagami <lightyagami@student.42.fr>    +#+  +:+       +#+        */
+/*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 19:43:53 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/24 23:50:56 by lightyagami      ###   ########.fr       */
+/*   Updated: 2023/08/29 16:53:15 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,20 +68,27 @@ void	check_size_n(int size_n);
 //sort_small -----------------------
 void	sort_for3(t_stacks *a, int id);
 void	sort_for5(t_stacks *a);
-//algo -----------------------------
-int 	pos_tobe_b(t_stacks* a, int index);
-int 	pos_tobe_a(t_stacks* a, int index);
+// //sort_dist ------------------------
+// int		compare_way(t_stacks *a, int pos_a, int pos_b, int size);
+// //algo -----------------------------
+// int		pos_tobe_b(t_stacks *a, int index);
+// int		pos_tobe_a(t_stacks *a, int index);
+//radix -----------------------------------
+void	sort_radix(t_stacks *a);
+//turn_radix ----------------------------
+void	transform_to_radix(t_stacks *a);
 //find_smaller ---------------------
 int		find_nextsmall(t_stacks *a, int id, int index);
 //find_bigger ----------------------
 int		find_next(t_stacks *a, int id, int index);
-//sort -----------------------------
-int		get_next(t_stacks *a, int index, int id, int rt_value);
-int		least_moves(t_stacks *a, int id);
-void	sortforbig(t_stacks *x);
-//sort_opers -------------------------
-void	set_pos(t_stacks *x, int pos_a, int pos_b, int size);
-int		compare_distance(t_stacks *a, int nbx, int small, int big);
+// //sort -----------------------------
+// int		get_next(t_stacks *a, int index, int id, int rt_value);
+// int		least_moves(t_stacks *a, int id);
+// void	sortforbig(t_stacks *x);
+// //sort_opers -------------------------
+// int		best_distance(t_stacks *a, int pos_a, int pos_b, int size);
+// void	set_pos(t_stacks *x, int pos_a, int pos_b, int size);
+// int		compare_distance(t_stacks *a, int nbx, int small, int big);
 //stack_opers_a ----------------------
 int		sa(t_stacks *x, int duo);
 int		ra(t_stacks *x, int duo);
@@ -93,15 +100,15 @@ int		rb(t_stacks *x, int duo);
 int		rrb(t_stacks *x, int duo);
 int		pb(t_stacks *x);
 //stack_opers_both -------------------
-int 	rr(t_stacks* x);
-int 	rrr(t_stacks* x);
-int 	ss(t_stacks* x);
+int		rr(t_stacks *x);
+int		rrr(t_stacks *x);
+int		ss(t_stacks *x);
 //utils ----------------------------
 int		get_nb(t_stacks *a, int index, int id);
 int		is_sorted(t_stacks *a);
 int		issmallest(t_stacks *a, int id, int index);
 int		isbiggest(t_stacks *a, int id, int index);
-//utils_dist ------------------------
+// //utils_dist ------------------------
 void	makebigtop(t_stacks *x, int id);
 int		way_bot(t_stacks *a, int index, int id);
 void	makeitgobot(t_stacks *a, int index, int dir, int id);
@@ -113,7 +120,7 @@ int		convert_str(t_stacks *a, char *str);
 int		pos_next(t_stacks *a, int index, int id, int size);
 int		pos_biggest(t_stacks *a, int id);
 int		pos_smallest(t_stacks *a, int id);
-int		closest_totop(t_stacks *a, int pos1, int pos2, int id);
+// int		closest_totop(t_stacks *a, int pos1, int pos2, int id);
 //utils_sort ------------------------
 int		way_top(t_stacks *a, int index, int id);
 int		swap_bigtop(t_stacks *a, int id);
@@ -133,6 +140,7 @@ void	print_allarray(t_stacks *a);
 void	all_free(t_stacks *a);
 void	check_malloc(t_stacks *a, int stack_alloc);
 void	check_malloc_strints(int *nbs, char *tmp, int type);
+void	check_malloc_rad(t_stacks *a, int *tocheck);
 //handle_array -----------------------
 void	swaparray(t_stacks *x, int id);
 #endif

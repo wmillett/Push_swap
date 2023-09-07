@@ -6,7 +6,7 @@
 /*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 15:04:25 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/23 16:51:36 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/29 16:15:51 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,10 @@ void	check_malloc_strints(int *nbs, char *tmp, int type)
 	}
 	if (nbs)
 		free(nbs);
+}
+
+void	check_malloc_rad(t_stacks *a, int *tocheck)
+{
+	if (tocheck == NULL)
+		err_exit(a, "memory allocation failed.");
 }

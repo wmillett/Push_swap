@@ -6,7 +6,7 @@
 /*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 22:56:11 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/24 15:42:16 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/29 16:17:13 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	ra(t_stacks *x, int duo)
 		x->a_stack[x->a_len - (i + 1)] = tmp2;
 		tmp2 = tmp1;
 	}
-	if(duo == FALSE)
+	if (duo == FALSE)
 		printf("ra\n");
 	return (TRUE);
 }

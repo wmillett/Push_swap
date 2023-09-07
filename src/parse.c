@@ -6,7 +6,7 @@
 /*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 19:16:47 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/23 17:16:33 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/09/07 19:36:39 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	convert_argv(t_stacks *a, int argc, char **argv)
 		{
 			if (check == ATOL_ER)
 				err_exit(a,
-					"contains an argument that is too large for an int.");
+					"contains an argument that is not an int.");
 			err_exit(a, "argument contains too many '-' symbols.");
 		}
 		a->a_stack[size - 1] = (int)check;
@@ -78,7 +78,7 @@ int	convert_1argv(t_stacks *a, char *str, int index)
 	{
 		free(str);
 		if (check == ATOL_ER)
-			err_exit(a, "contains an argument that is too large for an int.");
+			err_exit(a, "contains an argument that is not an int.");
 		err_exit(a, "argument contains too many '-' symbols.");
 	}
 	a->a_stack[index] = (int)check;

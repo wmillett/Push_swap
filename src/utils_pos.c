@@ -6,7 +6,7 @@
 /*   By: wmillett <wmillett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:03:36 by wmillett          #+#    #+#             */
-/*   Updated: 2023/08/23 17:26:30 by wmillett         ###   ########.fr       */
+/*   Updated: 2023/08/29 16:49:28 by wmillett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,31 +85,56 @@ int	pos_smallest(t_stacks *a, int id)
 	return (pos);
 }
 
-int	closest_totop(t_stacks *a, int pos1, int pos2, int id)
-{
-	const int	path1 = way_top(a, pos1, id);
-	const int	path2 = way_top(a, pos2, id);
-	int			dis1;
-	int			dis2;
+// int	closest_totop(t_stacks *a, int pos1, int pos2, int id)
+// {
+// 	const int	path1 = way_top(a, pos1, id);
+// 	const int	path2 = way_top(a, pos2, id);
+// 	int			dis1;
+// 	int			dis2;
 
-	if (id == A_ID)
-	{
-		if (a->a_len < 2)
-			return (INVALID);
-		dis1 = distance_top(a, pos1, A_ID, path1);
-		dis2 = distance_top(a, pos2, A_ID, path2);
-	}
-	if (id == B_ID)
-	{
-		if (a->b_len < 2)
-			return (INVALID);
-		dis1 = distance_top(a, pos1, B_ID, path1);
-		dis2 = distance_top(a, pos2, B_ID, path2);
-	}
-	if (dis1 < dis2)
-		return (1);
-	else if (dis1 > dis2)
-		return (2);
-	else
-		return (0);
-}
+// 	if (id == A_ID)
+// 	{
+// 		if (a->a_len < 2)
+// 			return (INVALID);
+// 		dis1 = distance_top(a, pos1, A_ID, path1);
+// 		dis2 = distance_top(a, pos2, A_ID, path2);
+// 	}
+// 	if (id == B_ID)
+// 	{
+// 		if (a->b_len < 2)
+// 			return (INVALID);
+// 		dis1 = distance_top(a, pos1, B_ID, path1);
+// 		dis2 = distance_top(a, pos2, B_ID, path2);
+// 	}
+// 	if (dis1 < dis2)
+// 		return (1);
+// 	else if (dis1 > dis2)
+// 		return (2);
+// 	else
+// 		return (0);
+// }
+
+// int	best_distance(t_stacks *a, int pos_a, int pos_b, int size)
+// {
+// 	const int	way = compare_way(a, pos_a, pos_b, size);
+// 	int			res;
+// 	int			dis1;
+// 	int			dis2;
+
+// 	if (way == BOTH_UP || way == ONLY_AUP)
+// 		dis1 = distance_top(a, pos_a, A_ID, BOTH_UP);
+// 	else
+// 		dis1 = distance_top(a, pos_a, A_ID, BOTH_DW);
+// 	if ((way == BOTH_UP || way == ONLY_BUP) && size == BIGGER)
+// 		dis2 = distance_top(a, pos_b, B_ID, BOTH_UP);
+// 	else if ((way == BOTH_UP || way == ONLY_BUP) && size == SMALLER)
+// 		dis2 = distance_bot(a, pos_b, B_ID, BOTH_UP);
+// 	else if ((way == BOTH_DW || way == ONLY_AUP) && size == BIGGER)
+// 		dis2 = distance_top(a, pos_b, B_ID, BOTH_DW);
+// 	else if ((way == BOTH_DW || way == ONLY_AUP) && size == SMALLER)
+// 		dis2 = distance_bot(a, pos_b, B_ID, BOTH_DW);
+// 	else
+// 		return (INVALID);
+// 	res = (dis1 + dis2);
+// 	return (res);
+// }
